@@ -16,20 +16,35 @@ export class CandidateProfilePage {
     public loadingController: LoadingController) {
     this.profile = {};
     var profile = {...navParams.data};
-    profile.tags = (typeof profile.tags)  === 'string' ? profile.tags.split(',') : (Array.isArray(profile.tags) ? profile.tags: [] );
+    profile.tags = this.parseTags(profile.tags);
     this.profile = profile;
   }
 
+  getStatusfromEnum = this.candidateService.getStatusfromEnum;
+
   showCandidate(){
       this.eventCtrl.publish('changeRootPage',{name:'Denilson'})
+  }
+
+  parseTags(tags){
+    (typeof tags)  === 'string' ? tags.split(',') : (Array.isArray(tags) ? tags: [] );
+  }
+
+  getColorByStatus(num){
+    return ["myGray", "myLightYellow", "myYellow", "myGreen", "myRed"][num];
   }
 
   updateStatus(candidate){
     var loader =  this.loadingController.create();
     loader.present();
     this.candidateService.updateCandidateStatus(candidate).subscribe(resp=>{
-      loader.dismiss();
+      setTimeout(()=> this.candidateService.loadCandidate(candidate.id).subscribe((resp)=>{
+        this.profile.newObs = "";
+        this.profile = resp.json();
+        this.profile.tags = this.parseTags(this.profile.tags);
+        loader.dismiss();
+      })
+      , 1000);
     })
   }
-
 }

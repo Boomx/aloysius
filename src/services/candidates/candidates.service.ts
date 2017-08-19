@@ -20,8 +20,12 @@ export class CandidatesService {
     });
   }
 
+  loadCandidate(id) : Observable<any>{
+    return this.http.get("https://hackmundi.herokuapp.com/candidato/"+ id);
+  }
+
   updateCandidateStatus(candidate):Observable<any>{
-    return this.http.post("https://hackmundi.herokuapp.com/candidatos/" + candidate.id,candidate);
+    return this.http.put("https://hackmundi.herokuapp.com/candidato/"+ candidate.id + "/status",{id:candidate.id,status:candidate.status,obs:candidate.newObs});
   }
 
   getCandidates(){
@@ -38,5 +42,9 @@ export class CandidatesService {
         return false;
       });
     })
+  }
+
+  getStatusfromEnum(num){
+    return ["Novo","Pendente","Em processo","Contratado","Eliminado"][num];
   }
 }

@@ -5,43 +5,57 @@
 </ion-header>
 <ion-content>
   <article>
-    <header>
-      <h1 class="profile-name">{{profile.nome}}</h1>
-      <div class="profile-infos">
-        <h3 class="profile-age">Idade: {{profile.idade}} anos,Cidade: {{profile.cidade}} / {{profile.estado}}</h3>
-        <h4 class="profile-area">Área de atuação: {{profile.area}} / {{profile.subarea}}</h4>
-         <h4>
-          <ion-badge *ngFor="let tag of profile.tags">
-            {{tag}}
-          </ion-badge>
-        </h4> 
-      </div>
-    </header>
-    <content>
-      <h5 class="profile-tel profile-infos">
-        <ion-icon name="call"></ion-icon>: {{profile.telefone}}</h5>
-      <h5 class="profile-linkedin profile-infos">
-        <ion-icon name="logo-linkedin"></ion-icon>: {{profile.linkedin}}</h5>
-      <h5 class="profile-github profile-infos">
-        <ion-icon name="logo-github"></ion-icon>: {{profile.github}}</h5>
-      <h5 class="profile-infos"> <span style="font-weight: bold;">Estado:</span> iniciado </h5>
-      <h5 class="profile-infos"> <span style="font-weight: bold;">Comentários:</span> {{profile.obs}}</h5>
-    </content>
     <ion-row>
       <ion-col>
-        <button ion-button primary (click)="updateStatus(profile)">Alterar estado</button>
+        <header>
+          <h1 class="profile-name">{{profile.nome}}</h1>
+          <div class="profile-infos">
+            <h3 class="profile-age">Idade: {{profile.idade}} anos,Cidade: {{profile.cidade}} / {{profile.estado}}</h3>
+            <h4 class="profile-area">Área de atuação: {{profile.area}} / {{profile.subarea}}</h4>
+            <h4>
+              <ion-badge *ngFor="let tag of profile.tags">
+                {{tag}}
+              </ion-badge>
+            </h4>
+          </div>
+        </header>
+        <content>
+          <h6 class="profile-infos"> <span style="font-weight: bold;">Status:</span>
+            <ion-badge color="{{getColorByStatus(profile.status)}}" >{{getStatusfromEnum(profile.status)}}</ion-badge>
+          </h6>
+          <h6 class="profile-tel profile-infos" *ngIf="profile.telefone">
+            <ion-icon name="call"></ion-icon>: {{profile.telefone}}</h6>
+          <h6 class="profile-linkedin profile-infos" *ngIf="profile.linkedin">
+            <ion-icon name="logo-linkedin"></ion-icon>: {{profile.linkedin}}</h6>
+          <h6 class="profile-github profile-infos" *ngIf="profile.github">
+            <ion-icon name="logo-github"></ion-icon>: {{profile.github}}</h6>
+          <h6 class="profile-infos" style="font-weight: bold;">Comentários: </h6>
+          <ion-list>
+            <ion-item *ngFor="let comment of  profile.obs">"{{comment}}"</ion-item>
+          </ion-list>
+        </content>
       </ion-col>
       <ion-col>
-        <ion-item> 
-          <ion-label>Status</ion-label>
-          <ion-select [(ngModel)]="profile.status">
-            <ion-option value="1">Novo</ion-option>
-            <ion-option value="2">Pendente</ion-option>
-            <ion-option value="3">Em processo</ion-option>
-            <ion-option value="4">Contratado</ion-option>
-            <ion-option value="5">Eliminado</ion-option>
-          </ion-select>
-        </ion-item>
+        <hr/>
+        <ion-row>
+          <ion-textarea placeholder="Enter a description" [(ngModel)]="profile.newObs"></ion-textarea>
+        </ion-row>
+        <ion-row>
+          <ion-item>
+            <ion-label>Status</ion-label>
+            <ion-select [(ngModel)]="profile.status">
+              <ion-option value="1">Novo</ion-option>
+              <ion-option value="2">Pendente</ion-option>
+              <ion-option value="3">Em processo</ion-option>
+              <ion-option value="4">Contratado</ion-option>
+              <ion-option value="5">Eliminado</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-row>
+        <ion-row>
+          <button ion-button block primary (click)="updateStatus(profile)">Atualizar estado</button>
+        </ion-row>
+        <hr/>
       </ion-col>
     </ion-row>
   </article>
