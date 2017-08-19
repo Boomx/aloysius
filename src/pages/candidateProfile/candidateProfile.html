@@ -1,6 +1,8 @@
 <ion-header>
-  <ion-navbar>
-    Candidato
+  <ion-navbar hideBackButton="true" color="primary">
+      <ion-title>
+        Perfil
+      </ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content>
@@ -26,9 +28,9 @@
           <h6 class="profile-tel profile-infos" *ngIf="profile.telefone">
             <ion-icon name="call"></ion-icon>: {{profile.telefone}}</h6>
           <h6 class="profile-linkedin profile-infos" *ngIf="profile.linkedin">
-            <ion-icon name="logo-linkedin"></ion-icon>: {{profile.linkedin}}</h6>
+            <ion-icon name="logo-linkedin"></ion-icon>: <a href="{{profile.linkedin}}">{{profile.linkedin}}</a> </h6>
           <h6 class="profile-github profile-infos" *ngIf="profile.github">
-            <ion-icon name="logo-github"></ion-icon>: {{profile.github}}</h6>
+            <ion-icon name="logo-github"></ion-icon>: <a href="{{profile.github}}">{{profile.github}}</a> </h6>
           <h6 class="profile-infos" style="font-weight: bold;">Comentários: </h6>
           <ion-list>
             <ion-item *ngFor="let comment of  profile.obs">"{{comment}}"</ion-item>
@@ -36,6 +38,7 @@
         </content>
       </ion-col>
       <ion-col>
+        <h4 style="text-align:center;">Atualização de Status</h4>
         <hr/>
         <ion-row>
           <ion-textarea placeholder="Enter a description" [(ngModel)]="profile.newObs"></ion-textarea>
@@ -44,11 +47,11 @@
           <ion-item>
             <ion-label>Status</ion-label>
             <ion-select [(ngModel)]="profile.status">
-              <ion-option value="1">Novo</ion-option>
-              <ion-option value="2">Pendente</ion-option>
-              <ion-option value="3">Em processo</ion-option>
-              <ion-option value="4">Contratado</ion-option>
-              <ion-option value="5">Eliminado</ion-option>
+              <ion-option value="0">Novo</ion-option>
+              <ion-option value="1">Pendente</ion-option>
+              <ion-option value="2">Em processo</ion-option>
+              <ion-option value="3">Contratado</ion-option>
+              <ion-option value="4">Eliminado</ion-option>
             </ion-select>
           </ion-item>
         </ion-row>

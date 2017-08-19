@@ -13,6 +13,7 @@ import { CandidatesListPage } from "../pages/menus/candidatesList/candidatesList
 import { CandidateProfilePage } from "../pages/candidateProfile/candidateProfile";
 import { CandidatesService } from '../services/candidates/candidates.service'
 import { HttpModule } from "@angular/http";
+import { TagsListPage } from "../pages/menus/tagsList/tagsList";
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HttpModule } from "@angular/http";
     ListPage,
     MenusPage,
     CandidatesListPage,
-    CandidateProfilePage  
+    CandidateProfilePage,
+    TagsListPage
   ],
   imports: [
     BrowserModule,
@@ -35,10 +37,12 @@ import { HttpModule } from "@angular/http";
     ListPage,
     MenusPage,
     CandidatesListPage,
-    CandidateProfilePage
+    CandidateProfilePage,
+    TagsListPage
   ],
   providers: [
     CandidatesService,
+    TagsListPage,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}

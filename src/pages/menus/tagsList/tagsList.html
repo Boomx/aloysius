@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Candidatos</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-searchbar (ionInput)="searchTags(myParam)" [(ngModel)]="myParam"></ion-searchbar>
+  <ion-list>
+    <button menuClose ion-item *ngFor="let tag of tags" (click)="showCandidatesFromTag(tag)">
+        {{tag}}
+    </button>
+  </ion-list>
+</ion-content>

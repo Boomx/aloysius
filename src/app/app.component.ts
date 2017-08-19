@@ -33,14 +33,6 @@ export class MyApp {
     this.initializeApp();
     this.loader = this.loadingController.create();
     this.loader.present();
-    
-    this.pages = [
-      { title: 'Não iniciados', component: HomePage },
-      { title: 'Pessoas', component: ListPage },
-      { title: 'Tags', component: ListPage },
-      { title: 'Status', component: ListPage },
-      { title: 'Contatos Realizados', component: ListPage }      
-    ];
   }
 
   initializeApp() {
@@ -57,7 +49,7 @@ export class MyApp {
 
   setSubscriptions(){
     this.eventCtrl.subscribe('changeRootPage', (candidate) => {
-      this.nav.setRoot(CandidateProfilePage,candidate);
+      this.nav.push(CandidateProfilePage,candidate);
     });
   }
 }

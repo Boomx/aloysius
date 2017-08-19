@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, Events } from 'ionic-angular';
+import { NavController, Events, NavParams } from 'ionic-angular';
 import { CandidatesService } from "../../../services/candidates/candidates.service";
 
 @Component({
@@ -12,8 +12,12 @@ export class CandidatesListPage {
   constructor(
     public navCtrl: NavController, 
     public eventCtrl:Events,
-    public candidatesService:CandidatesService) {
-    this.allCandidates = candidatesService.getCandidates();
+    public candidatesService:CandidatesService,
+    public navParam: NavParams) {
+    
+    console.log(navParam.data);
+      
+    this.allCandidates =  candidatesService.getCandidates();
     this.candidates = candidatesService.getCandidates();
   }
 

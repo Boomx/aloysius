@@ -2,27 +2,23 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { CandidatesListPage } from "./candidatesList/candidatesList";
 import { ListPage } from "../list/list";
+import { TagsListPage } from "./tagsList/tagsList";
 
 @Component({
   selector: 'page-menus',
   templateUrl: 'menus.html'
 })
 export class MenusPage {
-  menus: Array<{title: string}>;
+  menus: Array<{title: string,component: any}>;
   constructor(public navCtrl: NavController) {
     this.menus = [
-      { title: 'Não iniciados'},
-      { title: 'Pessoas'},
-      { title: 'Tags'},
-      { title: 'Status'},
-      { title: 'Contatos Realizados'}      
+      { title: 'Pessoas', component: CandidatesListPage},
+      { title: 'Tags', component: TagsListPage}
     ];
   }
 
-  showCandidates(){
-    // console.log(this.navCtrl.getActive());
-    // this.navCtrl.first()._nav.push(ListPage)
-    this.navCtrl.push(CandidatesListPage);
+  showCandidates(page){
+    this.navCtrl.push(page.component);
   }
 
 

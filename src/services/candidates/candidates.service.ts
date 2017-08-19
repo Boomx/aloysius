@@ -15,17 +15,17 @@ export class CandidatesService {
   }
 
   loadCandidates() : Observable<any>{
-    return this.http.get("https://hackmundi.herokuapp.com/candidatos/").map((resp) =>{
+    return this.http.get("https://hackmundi.herokuapp.com/candidatos").map((resp) =>{
       this.candidates = resp.json();
     });
   }
 
   loadCandidate(id) : Observable<any>{
-    return this.http.get("https://hackmundi.herokuapp.com/candidato/"+ id);
+    return this.http.get("https://hackmundi.herokuapp.com/candidatos/"+ id);
   }
 
   updateCandidateStatus(candidate):Observable<any>{
-    return this.http.put("https://hackmundi.herokuapp.com/candidato/"+ candidate.id + "/status",{id:candidate.id,status:candidate.status,obs:candidate.newObs});
+    return this.http.put("https://hackmundi.herokuapp.com/candidatos/"+ candidate.id + "/status",{id:candidate.id,status:candidate.status,obs:candidate.newObs});
   }
 
   getCandidates(){

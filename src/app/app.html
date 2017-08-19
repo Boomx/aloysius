@@ -1,8 +1,6 @@
 <ion-split-pane>
-  <div *ngIf="loading" class="tocenter">
-    <div class="loader"></div>
-  </div>
-  <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
-  <ion-nav [root]="rootPage" #content swipeBackEnabled="false" main></ion-nav>
-  <ion-nav [root]="menusPage" #content canGoBack="true" ></ion-nav>  
+  <ion-nav [root]="rootPage" #content canGoBack="false" swipeBackEnabled="false" main></ion-nav>
+  <ion-menu [content]="content">
+    <ion-nav [root]="menusPage"  canGoBack="true" menu></ion-nav>  
+  </ion-menu>
 </ion-split-pane>
