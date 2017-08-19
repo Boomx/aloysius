@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { CandidatesListPage } from "./candidatesList/candidatesList";
-import { ListPage } from "../list/list";
 import { TagsListPage } from "./tagsList/tagsList";
 import { StatusListPage } from "./statusList/statusList";
 

@@ -1,12 +1,10 @@
-import { Component, ViewChild, ViewChildren } from '@angular/core';
+import { Component, ViewChild} from '@angular/core';
 import { Nav, Platform, Events } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { MenusPage } from '../pages/menus/menus';
-import { ListPage } from '../pages/list/list';
-import { CandidatesListPage } from "../pages/menus/candidatesList/candidatesList";
 import { CandidateProfilePage } from "../pages/candidateProfile/candidateProfile";
 import { CandidatesService } from "../services/candidates/candidates.service";
 import { LoadingController } from 'ionic-angular';
