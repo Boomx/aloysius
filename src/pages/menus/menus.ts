@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { CandidatesListPage } from "./candidatesList/candidatesList";
 import { ListPage } from "../list/list";
 import { TagsListPage } from "./tagsList/tagsList";
+import { StatusListPage } from "./statusList/statusList";
 
 @Component({
   selector: 'page-menus',
@@ -13,7 +14,8 @@ export class MenusPage {
   constructor(public navCtrl: NavController) {
     this.menus = [
       { title: 'Pessoas', component: CandidatesListPage},
-      { title: 'Tags', component: TagsListPage}
+      { title: 'Tags', component: TagsListPage},
+      { title: 'Status', component: StatusListPage}
     ];
   }
 
