@@ -1,0 +1,12 @@
+<ion-header>
+    <ion-toolbar>
+    <ion-title>Candidatos</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-list>
+    <button menuClose ion-item *ngFor="let candidate of candidates" (click)="showCandidate()">
+        {{candidate.title}}
+    </button>
+    </ion-list>
+</ion-content>

@@ -1,0 +1,13 @@
+<ion-header>
+    <ion-toolbar>
+    <ion-title>Curriculoco</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+    <button menuClose ion-item *ngFor="let p of menus" (click)="showCandidates()">
+        {{p.title}}
+    </button>
+    </ion-list>
+</ion-content>
