@@ -10,6 +10,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MenusPage } from "../pages/menus/menus";
 import { CandidatesListPage } from "../pages/menus/candidatesList/candidatesList";
+import { CandidateProfilePage } from "../pages/candidateProfile/candidateProfile";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CandidatesListPage } from "../pages/menus/candidatesList/candidatesList
     HomePage,
     ListPage,
     MenusPage,
-    CandidatesListPage
+    CandidatesListPage,
+    CandidateProfilePage
   ],
   imports: [
     BrowserModule,
@@ -29,7 +31,8 @@ import { CandidatesListPage } from "../pages/menus/candidatesList/candidatesList
     HomePage,
     ListPage,
     MenusPage,
-    CandidatesListPage
+    CandidatesListPage,
+    CandidateProfilePage
   ],
   providers: [
     StatusBar,

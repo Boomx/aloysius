@@ -6,6 +6,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { MenusPage } from '../pages/menus/menus';
 import { ListPage } from '../pages/list/list';
+import { CandidatesListPage } from "../pages/menus/candidatesList/candidatesList";
+import { CandidateProfilePage } from "../pages/candidateProfile/candidateProfile";
 
 @Component({
   templateUrl: 'app.html'
@@ -36,18 +38,20 @@ export class MyApp {
       this.splashScreen.hide();
       
       this.setSubscriptions();
+      this.nav.setRoot(CandidateProfilePage);
     });
   }
 
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    // this.nav.setRoot(page.component);
+    
   }
 
   setSubscriptions(){
     this.eventCtrl.subscribe('changeRootPage', (page) => {
-      this.nav.setRoot(ListPage);
+      console.log("fodase");
+      this.nav.setRoot(CandidateProfilePage);
     });
   }
 }

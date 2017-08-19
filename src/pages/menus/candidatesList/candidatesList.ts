@@ -15,10 +15,11 @@ export class CandidatesListPage {
       { title: 'Vinicius'},
       { title: 'Catarina'}      
     ];
+    navCtrl.canGoBack();
   }
 
   showCandidate(){
-      this.eventCtrl.publish('showCandidate',{name:'Denilson'})
+      this.eventCtrl.publish('changeRootPage',{name:'Denilson'})
   }
 
 }
