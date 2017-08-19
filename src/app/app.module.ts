@@ -15,6 +15,7 @@ import { CandidatesService } from '../services/candidates/candidates.service'
 import { HttpModule } from "@angular/http";
 import { TagsListPage } from "../pages/menus/tagsList/tagsList";
 import { StatusListPage } from "../pages/menus/statusList/statusList";
+import { EditProfilePage } from "../pages/candidateProfile/editProfile/editProfile";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { StatusListPage } from "../pages/menus/statusList/statusList";
     CandidatesListPage,
     CandidateProfilePage,
     TagsListPage,
-    StatusListPage
+    StatusListPage,
+    EditProfilePage
   ],
   imports: [
     BrowserModule,
@@ -41,7 +43,8 @@ import { StatusListPage } from "../pages/menus/statusList/statusList";
     CandidatesListPage,
     CandidateProfilePage,
     TagsListPage,
-    StatusListPage
+    StatusListPage,
+    EditProfilePage
   ],
   providers: [
     CandidatesService,

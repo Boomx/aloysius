@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, Events } from 'ionic-angular';
+import { NavController, Events, ToastController } from 'ionic-angular';
 import { CandidatesService } from "../../../services/candidates/candidates.service";
 import { CandidatesListPage } from "../candidatesList/candidatesList";
 import * as R from "ramda";
@@ -14,7 +14,8 @@ export class StatusListPage {
   constructor(
     public navCtrl: NavController, 
     public eventCtrl:Events,
-    public candidatesService:CandidatesService) {
+    public candidatesService:CandidatesService,
+    public toastController: ToastController) {
     this.allCandidates = candidatesService.getCandidates();
   }
 
@@ -30,7 +31,13 @@ export class StatusListPage {
     const candidates = this.allCandidates.filter((candidate)=>{
       return candidate.status == code;
     });
-
-    this.navCtrl.push(CandidatesListPage, candidates);
+    if( R.isEmpty(candidates)) {
+      const toaster = this.toastController.create({message:"Não candidatos existem com estes status",position:"top"});
+      toaster.present();
+      setTimeout(function() {
+        toaster.dismiss();
+      }, 2000);
+    }
+    else this.navCtrl.push(CandidatesListPage, candidates);
   }
 }

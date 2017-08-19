@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar hideBackButton="true" color="primary">
+      <ion-title>
+        Editar
+      </ion-title>
+      <ion-buttons end> 
+        <!-- <button ion-button (click)="">
+          <ion-icon name="create" end></ion-icon>
+        </button>         -->
+      </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <article>
+          <ion-input [(ngModel)]="profile.nome"></ion-input>
+          <ion-input [(ngModel)]="profile.idade"></ion-input>
+          <ion-input [(ngModel)]="profile.cidade"></ion-input>
+          <ion-input [(ngModel)]="profile.estado"></ion-input>
+          <ion-input [(ngModel)]="profile.area"></ion-input>
+          <ion-input [(ngModel)]="profile.subarea"></ion-input>
+          <ion-input [(ngModel)]="profile.telefone"></ion-input>
+          <ion-input [(ngModel)]="profile.email"></ion-input>
+          <ion-input [(ngModel)]="profile.linkedin"></ion-input>
+          <ion-input [(ngModel)]="profile.github"></ion-input>
+  </article>
+</ion-content>

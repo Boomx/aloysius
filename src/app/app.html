@@ -1,6 +1,6 @@
 <ion-split-pane>
   <ion-nav [root]="rootPage" #content canGoBack="false" swipeBackEnabled="false" main></ion-nav>
-  <ion-menu [content]="content">
+  <ion-menu persistent="true" [content]="content">
     <ion-nav [root]="menusPage"  canGoBack="true" menu></ion-nav>  
   </ion-menu>
 </ion-split-pane>

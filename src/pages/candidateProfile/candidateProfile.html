@@ -3,6 +3,11 @@
       <ion-title>
         Perfil
       </ion-title>
+      <ion-buttons end> 
+        <button ion-button (click)="editCandidate()">
+          <ion-icon name="create" end></ion-icon>
+        </button>        
+      </ion-buttons>
   </ion-navbar>
 </ion-header>
 <ion-content>
@@ -27,6 +32,8 @@
           </h6>
           <h6 class="profile-tel profile-infos" *ngIf="profile.telefone">
             <ion-icon name="call"></ion-icon>: {{profile.telefone}}</h6>
+          <h6 class="profile-tel profile-infos" *ngIf="profile.email">
+            <ion-icon name="mail"></ion-icon>: <a href="mailto:{{profile.email}}">{{profile.email}}</a> </h6>
           <h6 class="profile-linkedin profile-infos" *ngIf="profile.linkedin">
             <ion-icon name="logo-linkedin"></ion-icon>: <a href="{{profile.linkedin}}">{{profile.linkedin}}</a> </h6>
           <h6 class="profile-github profile-infos" *ngIf="profile.github">

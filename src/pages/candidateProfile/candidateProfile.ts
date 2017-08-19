@@ -48,4 +48,8 @@ export class CandidateProfilePage {
       , 1000);
     })
   }
+
+  editCandidate(){
+    
+  }
 }
