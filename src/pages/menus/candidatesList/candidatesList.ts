@@ -8,16 +8,21 @@ import { CandidatesService } from "../../../services/candidates/candidates.servi
 })
 export class CandidatesListPage {
   candidates: Array<{title: string}>;
+  allCandidates: Array<{title: string}>;
   constructor(
     public navCtrl: NavController, 
     public eventCtrl:Events,
     public candidatesService:CandidatesService) {
+    this.allCandidates = candidatesService.getCandidates();
     this.candidates = candidatesService.getCandidates();
-    navCtrl.canGoBack();
   }
 
   showCandidate(candidate){
-      this.eventCtrl.publish('changeRootPage',candidate)
+    this.eventCtrl.publish('changeRootPage',candidate)
+  }
+
+  searchCandidates(param){
+    this.candidates = this.candidatesService.searchCandidates(param,this.allCandidates);
   }
 
 }
