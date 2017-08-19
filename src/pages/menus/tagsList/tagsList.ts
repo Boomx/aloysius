@@ -17,7 +17,7 @@ export class TagsListPage {
     public candidatesService:CandidatesService) {
     
     this.allCandidates = candidatesService.getCandidates();
-    console.log(this.gatherTags());
+    // console.log(this.gatherTags());
     
   }
 

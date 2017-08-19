@@ -13,7 +13,7 @@ export class MenusPage {
   constructor(public navCtrl: NavController) {
     this.menus = [
       { title: 'Pessoas', component: CandidatesListPage},
-      { title: 'Tags', component: TagsListPage}
+      // { title: 'Tags', component: TagsListPage}
     ];
   }
 
