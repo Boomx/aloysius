@@ -18,6 +18,7 @@ export class CandidateProfilePage {
     var profile = {...navParams.data};
     profile.tags = this.parseTags(profile.tags);
     this.profile = profile;
+    
   }
 
   getStatusfromEnum = this.candidateService.getStatusfromEnum;
@@ -27,7 +28,7 @@ export class CandidateProfilePage {
   }
 
   parseTags(tags){
-    (typeof tags)  === 'string' ? tags.split(',') : (Array.isArray(tags) ? tags: [] );
+    return (typeof tags)  === 'string' ? tags.split(',') : (Array.isArray(tags) ? tags: [] );
   }
 
   getColorByStatus(num){

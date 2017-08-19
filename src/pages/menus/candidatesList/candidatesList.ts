@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, Events, NavParams } from 'ionic-angular';
 import { CandidatesService } from "../../../services/candidates/candidates.service";
+import * as R from "ramda";
 
 @Component({
   selector: 'page-candidates-list',
@@ -13,12 +14,10 @@ export class CandidatesListPage {
     public navCtrl: NavController, 
     public eventCtrl:Events,
     public candidatesService:CandidatesService,
-    public navParam: NavParams) {
+    public navParam: NavParams,) {
     
-    console.log(navParam.data);
-      
     this.allCandidates =  candidatesService.getCandidates();
-    this.candidates = candidatesService.getCandidates();
+    this.candidates = R.isEmpty(navParam.data) ?  candidatesService.getCandidates() : navParam.data;
   }
 
   showCandidate(candidate){

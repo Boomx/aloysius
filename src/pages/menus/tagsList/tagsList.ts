@@ -2,41 +2,38 @@ import { Component } from '@angular/core';
 import { NavController, Events } from 'ionic-angular';
 import { CandidatesService } from "../../../services/candidates/candidates.service";
 import { CandidatesListPage } from "../candidatesList/candidatesList";
+import * as R from "ramda";
 
 @Component({
   selector: 'page-tags-list',
   templateUrl: 'tagsList.html'
 })
 export class TagsListPage {
-  tags: Array<{title: string}>;
-  allCandidates: Array<{title: string}>;
+  tags: any;
+  allCandidates: Array<any>;
   queryCandidates: Array<any>;
   constructor(
     public navCtrl: NavController, 
     public eventCtrl:Events,
     public candidatesService:CandidatesService) {
-    
     this.allCandidates = candidatesService.getCandidates();
-    // console.log(this.gatherTags());
-    
+    this.tags = this.gatherTags();
   }
 
-//   gatherTags(){
-//     this.allCandidates.reduce((candidate)=>{
-        
-//     },[])
-    
-//   }
-
-  showCandidate(candidate){
-    this.eventCtrl.publish('changeRootPage',candidate)
+  getCandidateTags(candidate){
+    return candidate.tags.split(',').map(x=>x.trim());
   }
 
-  searchCandidates(param){
-    this.queryCandidates = this.candidatesService.searchCandidates(param,this.allCandidates);
+  gatherTags(){
+    const tags = R.chain(this.getCandidateTags, this.allCandidates)
+    const uniqueTags = R.uniq(tags)
+    return uniqueTags;
   }
 
-  showCandidates(){
-    this.navCtrl.push(CandidatesListPage,this.allCandidates);
+  showCandidatesFromTag(tag){
+    const candidates = this.allCandidates.filter((candidate)=>{
+      return this.getCandidateTags(candidate).includes(tag);
+    });
+    this.navCtrl.push(CandidatesListPage,candidates);
   }
 }
