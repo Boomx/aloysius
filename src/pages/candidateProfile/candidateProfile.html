@@ -10,11 +10,11 @@
       <div class="profile-infos">
         <h3 class="profile-age">Idade: {{profile.idade}} anos,Cidade: {{profile.cidade}} / {{profile.estado}}</h3>
         <h4 class="profile-area">Área de atuação: {{profile.area}} / {{profile.subarea}}</h4>
-        <h4>
+         <h4>
           <ion-badge *ngFor="let tag of profile.tags">
             {{tag}}
           </ion-badge>
-        </h4>
+        </h4> 
       </div>
     </header>
     <content>

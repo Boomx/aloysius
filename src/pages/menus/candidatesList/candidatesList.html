@@ -5,8 +5,8 @@
 </ion-header>
 <ion-content>
     <ion-list>
-    <button menuClose ion-item *ngFor="let candidate of candidates" (click)="showCandidate()">
-        {{candidate.title}}
+    <button menuClose ion-item *ngFor="let candidate of candidates" (click)="showCandidate(candidate)">
+        {{candidate.nome}}
     </button>
     </ion-list>
 </ion-content>

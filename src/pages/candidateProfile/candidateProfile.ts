@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, Events } from 'ionic-angular';
+import { NavController, Events, NavParams } from 'ionic-angular';
 
 @Component({
   selector: 'candidate-profile-page',
@@ -7,22 +7,16 @@ import { NavController, Events } from 'ionic-angular';
 })
 export class CandidateProfilePage {
   profile;
-  constructor(public navCtrl: NavController, public eventCtrl:Events) {
-    this.profile = {
-      nome: "Luan de sena barbosa",
-      idade: 23,
-      cidade: "rio de janeiro",
-      estado: "RJ",
-      area: "tecnologia",
-      subarea: "dev",
-      tags: ["python", "lua", "golang"],
-      email: "lbarbosa@stone.com.br",
-      telefone: "(021)99131-0095",
-      linkedin: "aaaaaaaaaaaaaaaaaaa",
-      github: "bbbbbbbbbbbbbbbbbbbb",
-      obs: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam possimus officia, dolores voluptate quia recusandae quaerat praesentium nobis, nesciunt reprehenderit deserunt laudantium eum aut sunt cupiditate odit optio tempora beatae.",
-      status: 1
-    }
+  constructor(public navCtrl: NavController, public eventCtrl:Events,public navParams: NavParams) {
+    this.profile = {};
+    var profile = navParams.data;
+    console.log(typeof profile.tags);
+    
+    profile.tags = (typeof profile.tags)  === 'string' ? profile.tags.split(',') : (Array.isArray(profile.tags) ? profile.tags: [] );
+    // console.log(profile.data.tags.split(','));
+    this.profile = profile;
+    console.log(this.profile);
+    
   }
 
   showCandidate(){

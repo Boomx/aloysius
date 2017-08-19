@@ -8,6 +8,7 @@ import { MenusPage } from '../pages/menus/menus';
 import { ListPage } from '../pages/list/list';
 import { CandidatesListPage } from "../pages/menus/candidatesList/candidatesList";
 import { CandidateProfilePage } from "../pages/candidateProfile/candidateProfile";
+import { CandidatesService } from "../services/candidates/candidates.service";
 
 @Component({
   templateUrl: 'app.html'
@@ -18,10 +19,16 @@ export class MyApp {
   rootPage: any = HomePage;
   menusPage: any = MenusPage;
   pages: Array<{title: string, component: any}>;
-
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public eventCtrl:Events) {
+  loading: boolean;
+  constructor(
+    public platform: Platform, 
+    public statusBar: StatusBar,
+    public splashScreen: SplashScreen, 
+    public eventCtrl:Events,
+    public candidateService: CandidatesService
+  ) {
     this.initializeApp();
-
+    
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Não iniciados', component: HomePage },
@@ -36,22 +43,20 @@ export class MyApp {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      
+      this.candidateService.loadCandidates().subscribe((resp)=>{
+
+      });
+
       this.setSubscriptions();
-      this.nav.setRoot(CandidateProfilePage);
+      // this.nav.setRoot(CandidateProfilePage);
     });
   }
 
-  openPage(page) {
-    // Reset the content nav to have just this page
-    // we wouldn't want the back button to show in this scenario
-    
-  }
-
   setSubscriptions(){
-    this.eventCtrl.subscribe('changeRootPage', (page) => {
-      console.log("fodase");
-      this.nav.setRoot(CandidateProfilePage);
+    this.eventCtrl.subscribe('changeRootPage', (candidate) => {
+      console.log("FOWDASE",candidate);
+      
+      this.nav.setRoot(CandidateProfilePage,candidate);
     });
   }
 }

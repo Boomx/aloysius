@@ -11,6 +11,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { MenusPage } from "../pages/menus/menus";
 import { CandidatesListPage } from "../pages/menus/candidatesList/candidatesList";
 import { CandidateProfilePage } from "../pages/candidateProfile/candidateProfile";
+import { CandidatesService } from '../services/candidates/candidates.service'
+import { HttpModule } from "@angular/http";
 
 @NgModule({
   declarations: [
@@ -19,10 +21,11 @@ import { CandidateProfilePage } from "../pages/candidateProfile/candidateProfile
     ListPage,
     MenusPage,
     CandidatesListPage,
-    CandidateProfilePage
+    CandidateProfilePage  
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -35,6 +38,7 @@ import { CandidateProfilePage } from "../pages/candidateProfile/candidateProfile
     CandidateProfilePage
   ],
   providers: [
+    CandidatesService,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}

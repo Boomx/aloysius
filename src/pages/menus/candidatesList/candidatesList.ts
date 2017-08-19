@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, Events } from 'ionic-angular';
+import { CandidatesService } from "../../../services/candidates/candidates.service";
 
 @Component({
   selector: 'page-candidates-list',
@@ -7,19 +8,16 @@ import { NavController, Events } from 'ionic-angular';
 })
 export class CandidatesListPage {
   candidates: Array<{title: string}>;
-  constructor(public navCtrl: NavController, public eventCtrl:Events) {
-    this.candidates = [
-      { title: 'Joao'},
-      { title: 'Maria'},
-      { title: 'Jose'},
-      { title: 'Vinicius'},
-      { title: 'Catarina'}      
-    ];
+  constructor(
+    public navCtrl: NavController, 
+    public eventCtrl:Events,
+    public candidatesService:CandidatesService) {
+    this.candidates = candidatesService.getCandidates();
     navCtrl.canGoBack();
   }
 
-  showCandidate(){
-      this.eventCtrl.publish('changeRootPage',{name:'Denilson'})
+  showCandidate(candidate){
+      this.eventCtrl.publish('changeRootPage',candidate)
   }
 
 }
