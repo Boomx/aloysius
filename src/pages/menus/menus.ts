@@ -9,12 +9,12 @@ import { StatusListPage } from "./statusList/statusList";
   templateUrl: 'menus.html'
 })
 export class MenusPage {
-  menus: Array<{title: string,component: any}>;
+  menus: Array<{title: string,component: any, icon: string}>;
   constructor(public navCtrl: NavController) {
     this.menus = [
-      { title: 'Pessoas', component: CandidatesListPage},
-      { title: 'Tags', component: TagsListPage},
-      { title: 'Status', component: StatusListPage}
+      { title: 'Todos', component: CandidatesListPage, icon: 'people'},
+      { title: 'Habilidades', component: TagsListPage, icon: 'pricetags'},
+      { title: 'Status', component: StatusListPage, icon: 'stats'}
     ];
   }
 
@@ -23,6 +23,6 @@ export class MenusPage {
   }
 
 
-    
+
 
 }

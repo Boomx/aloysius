@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ModalController } from 'ionic-angular';
+import { NavController, NavParams, ModalController, ViewController } from 'ionic-angular';
 
 @Component({
   selector: 'candidate-profile-edit-page',
@@ -10,11 +10,18 @@ export class EditProfilePage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public modalContoller: ModalController) {
+    public modalContoller: ModalController,
+    public viewController: ViewController) {
     this.profile = {};
     var profile = {...navParams.data};
-    // profile.tags = this.parseTags(profile.tags);
     this.profile = profile;
-    
+  }
+
+  cancel(){
+    this.viewController.dismiss(false);
+  }
+
+  submit(){
+    this.viewController.dismiss(this.profile);
   }
 }

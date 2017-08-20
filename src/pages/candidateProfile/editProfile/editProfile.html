@@ -1,27 +1,107 @@
 <ion-header>
   <ion-navbar hideBackButton="true" color="primary">
-      <ion-title>
-        Editar
-      </ion-title>
-      <ion-buttons end> 
-        <!-- <button ion-button (click)="">
-          <ion-icon name="create" end></ion-icon>
-        </button>         -->
-      </ion-buttons>
+    <ion-title>
+      Editar
+    </ion-title>
+    <ion-buttons end>
+       <button ion-button (click)="cancel()">
+          <ion-icon name="close" end></ion-icon>
+        </button>         
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <article>
-          <ion-input [(ngModel)]="profile.nome"></ion-input>
-          <ion-input [(ngModel)]="profile.idade"></ion-input>
-          <ion-input [(ngModel)]="profile.cidade"></ion-input>
-          <ion-input [(ngModel)]="profile.estado"></ion-input>
-          <ion-input [(ngModel)]="profile.area"></ion-input>
-          <ion-input [(ngModel)]="profile.subarea"></ion-input>
-          <ion-input [(ngModel)]="profile.telefone"></ion-input>
-          <ion-input [(ngModel)]="profile.email"></ion-input>
-          <ion-input [(ngModel)]="profile.linkedin"></ion-input>
-          <ion-input [(ngModel)]="profile.github"></ion-input>
+    <form (ngSubmit)="submit()">
+      <ion-item>
+        <ion-label floating>Nome</ion-label>
+        <ion-input type="text" [(ngModel)]="profile.nome" name="nome"></ion-input>
+      </ion-item>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label floating>Idade</ion-label>
+            <ion-input type="number" [(ngModel)]="profile.idade" name="idade"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label floating>Cidade</ion-label>
+            <ion-input type="text" [(ngModel)]="profile.cidade" name="cidade"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label floating>Estado</ion-label>
+            <ion-input [(ngModel)]="profile.estado" name="estado"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label floating>Área</ion-label>
+            <ion-input [(ngModel)]="profile.area" name="área"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label floating>Sub-area</ion-label>
+            <ion-input [(ngModel)]="profile.subarea" name="subarea"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label floating>Telefone</ion-label>
+            <ion-input [(ngModel)]="profile.telefone" name="telefone"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label floating>Tags</ion-label>
+            <ion-input [(ngModel)]="profile.tags" name="tags"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label floating>Email</ion-label>
+            <ion-input [(ngModel)]="profile.email" name="email"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label>Responsável</ion-label>
+            <ion-select [(ngModel)]="profile.responsavel" name="responsavel">
+              <ion-option value="denilson.santos@mundipagg.com">denilson.santos@mundipagg.com</ion-option>
+              <ion-option value="r.mirandaterra@gmail.com">r.mirandaterra@gmail.com</ion-option>
+              <ion-option value="lbarbosa@stone.com.br">lbarbosa@stone.com.br</ion-option>
+              <ion-option value="thales.mello@pagar.me">thales.mello@pagar.me</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label floating>LinkedIn</ion-label>
+            <ion-input [(ngModel)]="profile.linkedin" name="linkedin"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label floating>GitHub</ion-label>
+            <ion-input [(ngModel)]="profile.github" name="github"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <button ion-button type="submit" block>Confirma</button>
+    </form>
   </article>
 </ion-content>

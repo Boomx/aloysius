@@ -1,13 +1,19 @@
 <ion-header>
   <ion-navbar color="primary">
-    <ion-title>Candidatos</ion-title>
+    <ion-title>
+      <h1>
+
+        Candidatos
+      </h1>
+    </ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content>
-  <ion-searchbar (ionInput)="searchTags(myParam)" [(ngModel)]="myParam"></ion-searchbar>
   <ion-list>
-    <button menuClose ion-item *ngFor="let code of statusCodes" (click)="showCandidatesFromCode(code)">
+    <button ion-item *ngFor="let code of statusCodes" (click)="showCandidatesFromCode(code)">
+      <h1>
         {{getStatusFromEnum(code)}}
+        </h1>
     </button>
   </ion-list>
 </ion-content>
