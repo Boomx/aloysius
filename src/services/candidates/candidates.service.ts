@@ -25,6 +25,10 @@ export class CandidatesService {
   }
 
   updateCandidateStatus(candidate):Observable<any>{
+    return this.http.put("https://hackmundi.herokuapp.com/candidatos/"+ candidate.id + "/status",{status:candidate.status,obs:candidate.newObs});
+  }
+
+  updateCandidate(candidate):Observable<any>{
     return this.http.put("https://hackmundi.herokuapp.com/candidatos/"+ candidate.id ,candidate);
   }
 

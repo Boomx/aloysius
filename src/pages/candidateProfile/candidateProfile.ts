@@ -64,7 +64,7 @@ export class CandidateProfilePage {
     modal.onDidDismiss(resp=>{
       if(resp){
         this.loader.present();
-        this.candidateService.updateCandidateStatus(resp).subscribe(resp=>{
+        this.candidateService.updateCandidate(resp).subscribe(resp=>{
           this.loader.dismiss();
         })
       }
