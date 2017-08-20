@@ -617,7 +617,18 @@ var MyApp = (function () {
             _this.statusBar.styleDefault();
             _this.splashScreen.hide();
             _this.candidateService.loadCandidates().subscribe(function (resp) {
-                _this.loader.dismiss();
+                var urlParams = new URLSearchParams(window.location.search);
+                var cand_id = urlParams.get('candidato_id');
+                if (cand_id) {
+                    console.log(cand_id);
+                    var candidate = resp.find(function (candidate) { return candidate.id == cand_id; });
+                    console.log(candidate);
+                    _this.loader.dismiss();
+                    if (candidate)
+                        _this.nav.push(__WEBPACK_IMPORTED_MODULE_6__pages_candidateProfile_candidateProfile__["a" /* CandidateProfilePage */], candidate);
+                }
+                else
+                    _this.loader.dismiss();
             });
             _this.setSubscriptions();
         });
@@ -682,7 +693,7 @@ var CandidatesService = (function () {
     CandidatesService.prototype.loadCandidates = function () {
         var _this = this;
         return this.http.get("https://hackmundi.herokuapp.com/candidatos").map(function (resp) {
-            _this.candidates = resp.json();
+            return _this.candidates = resp.json();
         });
     };
     CandidatesService.prototype.loadCandidate = function (id) {

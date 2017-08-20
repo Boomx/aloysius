@@ -41,6 +41,18 @@ export class MyApp {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       this.candidateService.loadCandidates().subscribe((resp)=>{
+        var urlParams = new URLSearchParams(window.location.search);
+        var cand_id = urlParams.get('candidato_id');
+        if(cand_id){
+          console.log(cand_id);
+          
+          const candidate = resp.find(candidate=> candidate.id == cand_id);
+          console.log(candidate);
+          
+          this.loader.dismiss();
+          if(candidate) this.nav.push(CandidateProfilePage,candidate);
+        }
+        else
         this.loader.dismiss();
       });
 
