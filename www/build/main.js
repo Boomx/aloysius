@@ -316,14 +316,14 @@ var CandidateProfilePage = (function () {
     };
     CandidateProfilePage.prototype.updateStatus = function (candidate) {
         var _this = this;
-        console.log("updateStatus");
         this.loader = this.loader = this.loadingController.create();
         this.loader.present();
         this.candidateService.updateCandidateStatus(candidate).subscribe(function (resp) {
             setTimeout(function () { return _this.candidateService.loadCandidate(candidate.id).subscribe(function (resp) {
-                _this.profile.newObs = "";
                 _this.profile = resp.json();
                 _this.profile.tags = _this.parseTags(_this.profile.tags);
+                _this.candidateService.loadCandidates();
+                _this.profile.newObs = "";
                 _this.loader.dismiss();
             }); }, 1000);
         });
@@ -338,7 +338,13 @@ var CandidateProfilePage = (function () {
             if (resp) {
                 _this.loader.present();
                 _this.candidateService.updateCandidate(resp).subscribe(function (resp) {
-                    _this.loader.dismiss();
+                    setTimeout(function () { return _this.candidateService.loadCandidate(_this.profile.id).subscribe(function (resp) {
+                        _this.profile = resp.json();
+                        _this.profile.tags = _this.parseTags(_this.profile.tags);
+                        _this.candidateService.loadCandidates();
+                        _this.profile.newObs = "";
+                        _this.loader.dismiss();
+                    }); }, 1000);
                 });
             }
         });
@@ -382,14 +388,10 @@ CandidateProfilePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'candidate-profile-page',template:/*ion-inline-start:"/home/denilson/hackaton/aloysius/src/pages/candidateProfile/candidateProfile.html"*/'<ion-header>\n  <ion-navbar hideBackButton="true" color="primary">\n    <ion-title>\n      <h1>\n        Perfil\n      </h1>\n    </ion-title>\n    <ion-buttons end>\n      <button ion-button (click)="editCandidate()">\n          <ion-icon name="create" end></ion-icon>\n        </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n<ion-content>\n  <article>\n    <ion-row>\n      <ion-col>\n        <header>\n          <h1 class="profile-name">{{profile.nome}}</h1>\n          <div class="profile-infos">\n            <h3 class="profile-age">Idade: {{profile.idade}} anos,Cidade: {{profile.cidade}} / {{profile.estado}}</h3>\n            <h4 class="profile-area">Área de atuação: {{profile.area}} / {{profile.subarea}}</h4>\n            <h4>\n              <ion-badge *ngFor="let tag of profile.tags">\n                {{tag}}\n              </ion-badge>\n            </h4>\n          </div>\n        </header>\n        <content>\n          <h6 class="profile-infos"> <span style="font-weight: bold;">Status:</span>\n            <ion-badge color="{{getColorByStatus(profile.status)}}">{{getStatusfromEnum(profile.status)}}</ion-badge> | <span>Responsável: {{profile.responsavel}}</span>\n          </h6>\n          <h6 class="profile-tel profile-infos" *ngIf="profile.telefone">\n            <ion-icon name="call"></ion-icon>: {{profile.telefone}}</h6>\n          <h6 class="profile-tel profile-infos" *ngIf="profile.email">\n            <ion-icon name="mail"></ion-icon>: <a href="mailto:{{profile.email}}">{{profile.email}}</a> </h6>\n          <h6 class="profile-linkedin profile-infos" *ngIf="profile.linkedin">\n            <ion-icon name="logo-linkedin"></ion-icon>: <a href="{{profile.linkedin}}">{{profile.linkedin}}</a> </h6>\n          <h6 class="profile-github profile-infos" *ngIf="profile.github">\n            <ion-icon name="logo-github"></ion-icon>: <a href="{{profile.github}}">{{profile.github}}</a> </h6>\n          <button [disabled]="!waitProfile || waitProfile.filecontent === \'Não informado\'" ion-button primary (click)="downloadCurriculum(profile.id)">Baixar Currículo</button>\n        </content>\n      </ion-col>\n      <ion-col>\n        <h6 class="profile-infos" style="font-weight: bold;">Comentários: </h6>\n        <ion-list>\n          <ion-item *ngFor="let comment of  profile.obs">- "{{comment}}"</ion-item>\n        </ion-list>\n        <div class="statusUpdate">\n          <h4 style="text-align:center;padding-top:20px;">Inserir novo Status</h4>\n          <hr/>\n          <ion-row>\n            <ion-textarea placeholder="Enter a description" [(ngModel)]="profile.newObs"></ion-textarea>\n          </ion-row>\n          <ion-row>\n            <ion-item>\n              <ion-label>Status</ion-label>\n              <ion-select [(ngModel)]="profile.status">\n                <ion-option value="0">Novo</ion-option>\n                <ion-option value="1">Pendente</ion-option>\n                <ion-option value="2">Em processo</ion-option>\n                <ion-option value="3">Contratado</ion-option>\n                <ion-option value="4">Eliminado</ion-option>\n              </ion-select>\n            </ion-item>\n          </ion-row>\n          <ion-row>\n            <button ion-button block primary (click)="updateStatus(profile)">Atualizar estado</button>\n          </ion-row>\n          <hr/>\n        </div>\n      </ion-col>\n    </ion-row>\n  </article>\n</ion-content>\n'/*ion-inline-end:"/home/denilson/hackaton/aloysius/src/pages/candidateProfile/candidateProfile.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* Events */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_2__services_candidates_candidates_service__["a" /* CandidatesService */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* LoadingController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* Events */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__services_candidates_candidates_service__["a" /* CandidatesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_candidates_candidates_service__["a" /* CandidatesService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* LoadingController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */]) === "function" && _f || Object])
 ], CandidateProfilePage);
 
+var _a, _b, _c, _d, _e, _f;
 //# sourceMappingURL=candidateProfile.js.map
 
 /***/ }),
