@@ -39347,3 +39347,14 @@ hr {
   width: 100%;
   height: .3em;
 }
+
+candidate-profile-edit-page hr {
+  background: #013821 no-repeat scroll left !important;
+  margin-left: 0;
+  width: 100%;
+  height: .3em;
+}
+
+candidate-profile-edit-page ion-label {
+  color: #013821 !important;
+}

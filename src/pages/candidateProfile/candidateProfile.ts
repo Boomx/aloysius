@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, Events, NavParams, LoadingController } from 'ionic-angular';
+import { NavController, Events, NavParams, LoadingController, ModalController } from 'ionic-angular';
 import { CandidatesService } from "../../services/candidates/candidates.service";
+import { EditProfilePage } from "./editProfile/editProfile";
 
 @Component({
   selector: 'candidate-profile-page',
@@ -13,7 +14,9 @@ export class CandidateProfilePage {
     public eventCtrl:Events,
     public navParams: NavParams,
     public candidateService: CandidatesService,
-    public loadingController: LoadingController) {
+    public loadingController: LoadingController,
+    public modalController: ModalController)
+     {
     this.profile = {};
     var profile = {...navParams.data};
     profile.tags = this.parseTags(profile.tags);
@@ -50,6 +53,6 @@ export class CandidateProfilePage {
   }
 
   editCandidate(){
-    
+    this.modalController.create(EditProfilePage).present();
   }
 }

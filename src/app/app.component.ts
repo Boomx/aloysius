@@ -7,7 +7,8 @@ import { HomePage } from '../pages/home/home';
 import { MenusPage } from '../pages/menus/menus';
 import { CandidateProfilePage } from "../pages/candidateProfile/candidateProfile";
 import { CandidatesService } from "../services/candidates/candidates.service";
-import { LoadingController } from 'ionic-angular';
+import { LoadingController, ModalController } from 'ionic-angular';
+import { EditProfilePage } from "../pages/candidateProfile/editProfile/editProfile";
 
 @Component({
   templateUrl: 'app.html'
@@ -26,11 +27,13 @@ export class MyApp {
     public splashScreen: SplashScreen, 
     public eventCtrl:Events,
     public candidateService: CandidatesService,
-    public loadingController: LoadingController
+    public loadingController: LoadingController,
+    public fodase : ModalController
   ) {
     this.initializeApp();
     this.loader = this.loadingController.create();
-    this.loader.present();
+    // this.loader.present();
+    fodase.create(EditProfilePage).present();
   }
 
   initializeApp() {

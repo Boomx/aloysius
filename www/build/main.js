@@ -1,6 +1,57 @@
 webpackJsonp([0],{
 
-/***/ 174:
+/***/ 165:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditProfilePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(23);
+var __assign = (this && this.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+    }
+    return t;
+};
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var EditProfilePage = (function () {
+    function EditProfilePage(navCtrl, navParams, modalContoller) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.modalContoller = modalContoller;
+        this.profile = {};
+        var profile = __assign({}, navParams.data);
+        // profile.tags = this.parseTags(profile.tags);
+        this.profile = profile;
+    }
+    return EditProfilePage;
+}());
+EditProfilePage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'candidate-profile-edit-page',template:/*ion-inline-start:"/home/denilson/hackaton/webApp/src/pages/candidateProfile/editProfile/editProfile.html"*/'<ion-header>\n  <ion-navbar hideBackButton="true" color="primary">\n    <ion-title>\n      Editar\n    </ion-title>\n    <ion-buttons end>\n      <!-- <button ion-button (click)="">\n          <ion-icon name="create" end></ion-icon>\n        </button>         -->\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <article>\n    <form (ngSubmit)="logForm()">\n      <ion-item>\n        <ion-label floating>Nome</ion-label>\n        <ion-input type="text" [(ngModel)]="profile.nome" name="nome"></ion-input>\n      </ion-item>\n      <ion-row>\n        <ion-col>\n          <ion-item>\n            <ion-label floating>Idade</ion-label>\n            <ion-input type="number" [(ngModel)]="profile.idade" name="idade"></ion-input>\n          </ion-item>\n        </ion-col>\n        <ion-col>\n          <ion-item>\n            <ion-label floating>Cidade</ion-label>\n            <ion-input type="text" [(ngModel)]="profile.cidade" name="cidade"></ion-input>\n          </ion-item>\n        </ion-col>\n        <ion-col>\n          <ion-item>\n            <ion-label floating>Estado</ion-label>\n            <ion-input [(ngModel)]="profile.estado" name="estado"></ion-input>\n          </ion-item>\n        </ion-col>\n      </ion-row>\n      <ion-row>\n        <ion-col>\n          <ion-item>\n            <ion-label floating>Área</ion-label>\n            <ion-input [(ngModel)]="profile.area" name="área"></ion-input>\n          </ion-item>\n        </ion-col>\n        <ion-col>\n          <ion-item>\n            <ion-label floating>Subárea</ion-label>\n            <ion-input [(ngModel)]="profile.subarea" name="subarea"></ion-input>\n          </ion-item>\n        </ion-col>\n        <ion-col>\n          <ion-item>\n            <ion-label floating>Telefone</ion-label>\n            <ion-input [(ngModel)]="profile.telefone" name="telefone"></ion-input>\n          </ion-item>\n        </ion-col>\n      </ion-row>\n      <ion-row>\n        <ion-col>\n          <ion-item>\n            <ion-label floating>Email</ion-label>\n            <ion-input [(ngModel)]="profile.email" name="email"></ion-input>\n          </ion-item>\n        </ion-col>\n      </ion-row>\n      <ion-row>\n        <ion-col>\n          <ion-item>\n            <ion-label floating>LinkedIn</ion-label>\n            <ion-input [(ngModel)]="profile.linkedin" name="linkedin"></ion-input>\n          </ion-item>\n        </ion-col>\n        <ion-col>\n          <ion-item>\n            <ion-label floating>GitHub</ion-label>\n            <ion-input [(ngModel)]="profile.github" name="github"></ion-input>\n          </ion-item>\n        </ion-col>\n      </ion-row>\n      <button ion-button type="submit" block>Confirma</button>\n    </form>\n  </article>\n</ion-content>\n'/*ion-inline-end:"/home/denilson/hackaton/webApp/src/pages/candidateProfile/editProfile/editProfile.html"*/
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */]])
+], EditProfilePage);
+
+//# sourceMappingURL=editProfile.js.map
+
+/***/ }),
+
+/***/ 175:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -13,11 +64,11 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 174;
+webpackEmptyAsyncContext.id = 175;
 
 /***/ }),
 
-/***/ 216:
+/***/ 217:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -30,11 +81,11 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 216;
+webpackEmptyAsyncContext.id = 217;
 
 /***/ }),
 
-/***/ 260:
+/***/ 261:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69,7 +120,7 @@ HomePage = __decorate([
 
 /***/ }),
 
-/***/ 261:
+/***/ 262:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -77,8 +128,8 @@ HomePage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__candidatesList_candidatesList__ = __webpack_require__(77);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tagsList_tagsList__ = __webpack_require__(318);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__statusList_statusList__ = __webpack_require__(319);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tagsList_tagsList__ = __webpack_require__(319);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__statusList_statusList__ = __webpack_require__(320);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -118,7 +169,7 @@ MenusPage = __decorate([
 
 /***/ }),
 
-/***/ 318:
+/***/ 319:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -181,7 +232,7 @@ TagsListPage = __decorate([
 
 /***/ }),
 
-/***/ 319:
+/***/ 320:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -249,7 +300,7 @@ StatusListPage = __decorate([
 
 /***/ }),
 
-/***/ 320:
+/***/ 321:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -257,6 +308,7 @@ StatusListPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_candidates_candidates_service__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__editProfile_editProfile__ = __webpack_require__(165);
 var __assign = (this && this.__assign) || Object.assign || function(t) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
         s = arguments[i];
@@ -277,13 +329,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var CandidateProfilePage = (function () {
-    function CandidateProfilePage(navCtrl, eventCtrl, navParams, candidateService, loadingController) {
+    function CandidateProfilePage(navCtrl, eventCtrl, navParams, candidateService, loadingController, modalController) {
         this.navCtrl = navCtrl;
         this.eventCtrl = eventCtrl;
         this.navParams = navParams;
         this.candidateService = candidateService;
         this.loadingController = loadingController;
+        this.modalController = modalController;
         this.getStatusfromEnum = this.candidateService.getStatusfromEnum;
         this.profile = {};
         var profile = __assign({}, navParams.data);
@@ -313,6 +367,7 @@ var CandidateProfilePage = (function () {
         });
     };
     CandidateProfilePage.prototype.editCandidate = function () {
+        this.modalController.create(__WEBPACK_IMPORTED_MODULE_3__editProfile_editProfile__["a" /* EditProfilePage */]).present();
     };
     return CandidateProfilePage;
 }());
@@ -324,20 +379,21 @@ CandidateProfilePage = __decorate([
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* Events */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
         __WEBPACK_IMPORTED_MODULE_2__services_candidates_candidates_service__["a" /* CandidatesService */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* LoadingController */]])
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* LoadingController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */]])
 ], CandidateProfilePage);
 
 //# sourceMappingURL=candidateProfile.js.map
 
 /***/ }),
 
-/***/ 321:
+/***/ 322:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(322);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(339);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(323);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(340);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -345,7 +401,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 339:
+/***/ 340:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -353,19 +409,19 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(379);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(260);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_list_list__ = __webpack_require__(589);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_status_bar__ = __webpack_require__(256);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_splash_screen__ = __webpack_require__(259);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_menus_menus__ = __webpack_require__(261);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(380);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(261);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_list_list__ = __webpack_require__(590);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_status_bar__ = __webpack_require__(257);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_splash_screen__ = __webpack_require__(260);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_menus_menus__ = __webpack_require__(262);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_menus_candidatesList_candidatesList__ = __webpack_require__(77);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_candidateProfile_candidateProfile__ = __webpack_require__(320);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_candidateProfile_candidateProfile__ = __webpack_require__(321);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__services_candidates_candidates_service__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__angular_http__ = __webpack_require__(262);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_menus_tagsList_tagsList__ = __webpack_require__(318);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_menus_statusList_statusList__ = __webpack_require__(319);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_candidateProfile_editProfile_editProfile__ = __webpack_require__(590);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__angular_http__ = __webpack_require__(263);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_menus_tagsList_tagsList__ = __webpack_require__(319);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_menus_statusList_statusList__ = __webpack_require__(320);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_candidateProfile_editProfile_editProfile__ = __webpack_require__(165);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -437,19 +493,20 @@ AppModule = __decorate([
 
 /***/ }),
 
-/***/ 379:
+/***/ 380:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(256);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(259);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(260);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_menus_menus__ = __webpack_require__(261);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_candidateProfile_candidateProfile__ = __webpack_require__(320);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(257);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(260);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(261);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_menus_menus__ = __webpack_require__(262);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_candidateProfile_candidateProfile__ = __webpack_require__(321);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_candidates_candidates_service__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_candidateProfile_editProfile_editProfile__ = __webpack_require__(165);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -468,19 +525,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var MyApp = (function () {
-    function MyApp(platform, statusBar, splashScreen, eventCtrl, candidateService, loadingController) {
+    function MyApp(platform, statusBar, splashScreen, eventCtrl, candidateService, loadingController, fodase) {
         this.platform = platform;
         this.statusBar = statusBar;
         this.splashScreen = splashScreen;
         this.eventCtrl = eventCtrl;
         this.candidateService = candidateService;
         this.loadingController = loadingController;
+        this.fodase = fodase;
         this.rootPage = __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */];
         this.menusPage = __WEBPACK_IMPORTED_MODULE_5__pages_menus_menus__["a" /* MenusPage */];
         this.initializeApp();
         this.loader = this.loadingController.create();
-        this.loader.present();
+        // this.loader.present();
+        fodase.create(__WEBPACK_IMPORTED_MODULE_8__pages_candidateProfile_editProfile_editProfile__["a" /* EditProfilePage */]).present();
     }
     MyApp.prototype.initializeApp = function () {
         var _this = this;
@@ -513,7 +573,8 @@ MyApp = __decorate([
         __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* Events */],
         __WEBPACK_IMPORTED_MODULE_7__services_candidates_candidates_service__["a" /* CandidatesService */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* LoadingController */]])
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* LoadingController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */]])
 ], MyApp);
 
 //# sourceMappingURL=app.component.js.map
@@ -526,10 +587,10 @@ MyApp = __decorate([
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CandidatesService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(262);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(388);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(263);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(389);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_observable_of__ = __webpack_require__(389);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_observable_of__ = __webpack_require__(390);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_observable_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_observable_of__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -591,7 +652,7 @@ CandidatesService = __decorate([
 
 /***/ }),
 
-/***/ 589:
+/***/ 590:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -644,57 +705,6 @@ ListPage = ListPage_1 = __decorate([
 
 var ListPage_1;
 //# sourceMappingURL=list.js.map
-
-/***/ }),
-
-/***/ 590:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditProfilePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(23);
-var __assign = (this && this.__assign) || Object.assign || function(t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-        s = arguments[i];
-        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-            t[p] = s[p];
-    }
-    return t;
-};
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var EditProfilePage = (function () {
-    function EditProfilePage(navCtrl, navParams, modalContoller) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.modalContoller = modalContoller;
-        this.profile = {};
-        var profile = __assign({}, navParams.data);
-        // profile.tags = this.parseTags(profile.tags);
-        this.profile = profile;
-    }
-    return EditProfilePage;
-}());
-EditProfilePage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'candidate-profile-edit-page',template:/*ion-inline-start:"/home/denilson/hackaton/webApp/src/pages/candidateProfile/editProfile/editProfile.html"*/'<ion-header>\n  <ion-navbar hideBackButton="true" color="primary">\n      <ion-title>\n        Editar\n      </ion-title>\n      <ion-buttons end> \n        <!-- <button ion-button (click)="">\n          <ion-icon name="create" end></ion-icon>\n        </button>         -->\n      </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <article>\n          <ion-input [(ngModel)]="profile.nome"></ion-input>\n          <ion-input [(ngModel)]="profile.idade"></ion-input>\n          <ion-input [(ngModel)]="profile.cidade"></ion-input>\n          <ion-input [(ngModel)]="profile.estado"></ion-input>\n          <ion-input [(ngModel)]="profile.area"></ion-input>\n          <ion-input [(ngModel)]="profile.subarea"></ion-input>\n          <ion-input [(ngModel)]="profile.telefone"></ion-input>\n          <ion-input [(ngModel)]="profile.email"></ion-input>\n          <ion-input [(ngModel)]="profile.linkedin"></ion-input>\n          <ion-input [(ngModel)]="profile.github"></ion-input>\n  </article>\n</ion-content>\n'/*ion-inline-end:"/home/denilson/hackaton/webApp/src/pages/candidateProfile/editProfile/editProfile.html"*/
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */]])
-], EditProfilePage);
-
-//# sourceMappingURL=editProfile.js.map
 
 /***/ }),
 
@@ -752,5 +762,5 @@ CandidatesListPage = __decorate([
 
 /***/ })
 
-},[321]);
+},[322]);
 //# sourceMappingURL=main.js.map
