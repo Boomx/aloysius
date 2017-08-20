@@ -16,7 +16,7 @@ export class CandidatesService {
 
   loadCandidates() : Observable<any>{
     return this.http.get("https://hackmundi.herokuapp.com/candidatos").map((resp) =>{
-      this.candidates = resp.json();
+      return this.candidates = resp.json();
     });
   }
 
