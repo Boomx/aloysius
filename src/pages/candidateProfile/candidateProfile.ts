@@ -72,12 +72,13 @@ export class CandidateProfilePage {
   }
 
   downloadCurriculum(){
-      var blob;
-      var blob_response = new Blob([ 'data:application/octet-stream;base64,' + this.waitProfile.filecontent], {
-        type: 'application/pdf'
-      });
+      var pdfBlob = b64toBlob(this.waitProfile.filecontent, 'application/pdf', 512)
+      // var blob;
+      // var blob_response = new Blob([ 'data:application/octet-stream;base64,' + this.waitProfile.filecontent], {
+      //   type: 'application/pdf'
+      // });
 
-      var fileURL = URL.createObjectURL(blob_response);
+      var fileURL = URL.createObjectURL(pdfBlob);
       
       var summary_pdf = document.createElement('a');
       summary_pdf.href = fileURL;
@@ -87,5 +88,29 @@ export class CandidateProfilePage {
       document.body.appendChild(summary_pdf);
       summary_pdf.click();
       // $scope.alerts.push(response.data.message);
+
+      function b64toBlob(b64Data, contentType, sliceSize) {
+        contentType = contentType || '';
+        sliceSize = sliceSize || 512;
+
+        var byteCharacters = atob(b64Data);
+        var byteArrays = [];
+
+        for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+          var slice = byteCharacters.slice(offset, offset + sliceSize);
+
+          var byteNumbers = new Array(slice.length);
+          for (var i = 0; i < slice.length; i++) {
+            byteNumbers[i] = slice.charCodeAt(i);
+          }
+
+          var byteArray = new Uint8Array(byteNumbers);
+
+          byteArrays.push(byteArray);
+        }
+
+        var blob = new Blob(byteArrays, {type: contentType});
+        return blob;
+      }
   }
 }
