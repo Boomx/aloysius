@@ -42,19 +42,20 @@ export class CandidateProfilePage {
   }
 
   updateStatus(candidate){
-    console.log("updateStatus");
     this.loader = this.loader =  this.loadingController.create();
     this.loader.present();
     this.candidateService.updateCandidateStatus(candidate).subscribe(resp=>{
       setTimeout(()=> this.candidateService.loadCandidate(candidate.id).subscribe((resp)=>{
-        this.profile.newObs = "";
         this.profile = resp.json();
         this.profile.tags = this.parseTags(this.profile.tags);
+        this.candidateService.loadCandidates();
+        this.profile.newObs = "";
         this.loader.dismiss();
       })
       , 1000);
     })
   }
+  
 
   editCandidate(){
     console.log("editCandidate");
@@ -65,7 +66,14 @@ export class CandidateProfilePage {
       if(resp){
         this.loader.present();
         this.candidateService.updateCandidate(resp).subscribe(resp=>{
-          this.loader.dismiss();
+          setTimeout(()=> this.candidateService.loadCandidate(this.profile.id).subscribe((resp)=>{
+            this.profile = resp.json();
+            this.profile.tags = this.parseTags(this.profile.tags);
+            this.candidateService.loadCandidates();
+            this.profile.newObs = "";
+            this.loader.dismiss();
+          })
+          , 1000);
         })
       }
     })

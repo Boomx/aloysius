@@ -316,14 +316,14 @@ var CandidateProfilePage = (function () {
     };
     CandidateProfilePage.prototype.updateStatus = function (candidate) {
         var _this = this;
-        console.log("updateStatus");
         this.loader = this.loader = this.loadingController.create();
         this.loader.present();
         this.candidateService.updateCandidateStatus(candidate).subscribe(function (resp) {
             setTimeout(function () { return _this.candidateService.loadCandidate(candidate.id).subscribe(function (resp) {
-                _this.profile.newObs = "";
                 _this.profile = resp.json();
                 _this.profile.tags = _this.parseTags(_this.profile.tags);
+                _this.candidateService.loadCandidates();
+                _this.profile.newObs = "";
                 _this.loader.dismiss();
             }); }, 1000);
         });
@@ -338,7 +338,13 @@ var CandidateProfilePage = (function () {
             if (resp) {
                 _this.loader.present();
                 _this.candidateService.updateCandidate(resp).subscribe(function (resp) {
-                    _this.loader.dismiss();
+                    setTimeout(function () { return _this.candidateService.loadCandidate(_this.profile.id).subscribe(function (resp) {
+                        _this.profile = resp.json();
+                        _this.profile.tags = _this.parseTags(_this.profile.tags);
+                        _this.candidateService.loadCandidates();
+                        _this.profile.newObs = "";
+                        _this.loader.dismiss();
+                    }); }, 1000);
                 });
             }
         });
