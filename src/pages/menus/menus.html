@@ -8,12 +8,16 @@
     </ion-navbar >
 </ion-header>
 
-<ion-content>
+<ion-content >
     <ion-list>
-    <button menuClose ion-item *ngFor="let p of menus" (click)="showCandidates(p)">
+    <button ion-item *ngFor="let p of menus" (click)="showCandidates(p)">
         <h1>
+          <ion-icon name="{{p.icon}}"></ion-icon>
           {{p.title}}
         </h1>
     </button>
     </ion-list>
 </ion-content>
+<ion-footer>
+  Powered by Stone.co
+</ion-footer>

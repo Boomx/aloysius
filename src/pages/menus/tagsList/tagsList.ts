@@ -16,6 +16,7 @@ export class TagsListPage {
     public navCtrl: NavController, 
     public eventCtrl:Events,
     public candidatesService:CandidatesService) {
+
     this.allCandidates = candidatesService.getCandidates();
     this.tags = this.gatherTags();
   }
@@ -35,5 +36,12 @@ export class TagsListPage {
       return this.getCandidateTags(candidate).includes(tag);
     });
     this.navCtrl.push(CandidatesListPage,candidates);
+  }
+
+  searchTags(param){
+    if(!param) return this.tags;
+    return this.tags.map(x=>x.toLowerCase()).filter((tag)=>{
+      return this.tags.includes(param.toLowerCase())
+    });
   }
 }

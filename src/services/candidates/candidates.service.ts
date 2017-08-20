@@ -25,7 +25,7 @@ export class CandidatesService {
   }
 
   updateCandidateStatus(candidate):Observable<any>{
-    return this.http.put("https://hackmundi.herokuapp.com/candidatos/"+ candidate.id + "/status",{id:candidate.id,status:candidate.status,obs:candidate.newObs});
+    return this.http.put("https://hackmundi.herokuapp.com/candidatos/"+ candidate.id ,candidate);
   }
 
   getCandidates(){
@@ -46,5 +46,9 @@ export class CandidatesService {
 
   getStatusfromEnum(num){
     return ["Novo","Pendente","Em processo","Contratado","Eliminado"][num];
+  }
+
+  loadCurriculum(id) : Observable<any>{
+    return this.http.get("https://hackmundi.herokuapp.com/candidatos/"+ id);
   }
 }

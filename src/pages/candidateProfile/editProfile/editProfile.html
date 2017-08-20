@@ -4,16 +4,16 @@
       Editar
     </ion-title>
     <ion-buttons end>
-      <!-- <button ion-button (click)="">
-          <ion-icon name="create" end></ion-icon>
-        </button>         -->
+       <button ion-button (click)="cancel()">
+          <ion-icon name="close" end></ion-icon>
+        </button>         
     </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <article>
-    <form (ngSubmit)="logForm()">
+    <form (ngSubmit)="submit()">
       <ion-item>
         <ion-label floating>Nome</ion-label>
         <ion-input type="text" [(ngModel)]="profile.nome" name="nome"></ion-input>
@@ -47,7 +47,7 @@
         </ion-col>
         <ion-col>
           <ion-item>
-            <ion-label floating>Subárea</ion-label>
+            <ion-label floating>Sub-area</ion-label>
             <ion-input [(ngModel)]="profile.subarea" name="subarea"></ion-input>
           </ion-item>
         </ion-col>
@@ -61,8 +61,29 @@
       <ion-row>
         <ion-col>
           <ion-item>
+            <ion-label floating>Tags</ion-label>
+            <ion-input [(ngModel)]="profile.tags" name="tags"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
             <ion-label floating>Email</ion-label>
             <ion-input [(ngModel)]="profile.email" name="email"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label>Responsável</ion-label>
+            <ion-select [(ngModel)]="profile.responsavel" name="responsavel">
+              <ion-option value="denilson.santos@mundipagg.com">denilson.santos@mundipagg.com</ion-option>
+              <ion-option value="r.mirandaterra@gmail.com">r.mirandaterra@gmail.com</ion-option>
+              <ion-option value="lbarbosa@stone.com.br">lbarbosa@stone.com.br</ion-option>
+              <ion-option value="thales.mello@pagar.me">thales.mello@pagar.me</ion-option>
+            </ion-select>
           </ion-item>
         </ion-col>
       </ion-row>

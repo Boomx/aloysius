@@ -32,7 +32,7 @@ export class MyApp {
   ) {
     this.initializeApp();
     this.loader = this.loadingController.create();
-    // this.loader.present();
+    this.loader.present();
     // fodase.create(EditProfilePage).present();
   }
 

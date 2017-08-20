@@ -1,15 +1,15 @@
 <ion-header>
   <ion-navbar hideBackButton="true" color="primary">
-      <ion-title>
-        <h1>
-          Perfil
-        </h1>
-      </ion-title>
-      <ion-buttons end>
-        <button ion-button (click)="editCandidate()">
+    <ion-title>
+      <h1>
+        Perfil
+      </h1>
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="editCandidate()">
           <ion-icon name="create" end></ion-icon>
         </button>
-      </ion-buttons>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 <ion-content>
@@ -30,7 +30,7 @@
         </header>
         <content>
           <h6 class="profile-infos"> <span style="font-weight: bold;">Status:</span>
-            <ion-badge color="{{getColorByStatus(profile.status)}}" >{{getStatusfromEnum(profile.status)}}</ion-badge>
+            <ion-badge color="{{getColorByStatus(profile.status)}}">{{getStatusfromEnum(profile.status)}}</ion-badge> | <span>Responsável: {{profile.responsavel}}</span>
           </h6>
           <h6 class="profile-tel profile-infos" *ngIf="profile.telefone">
             <ion-icon name="call"></ion-icon>: {{profile.telefone}}</h6>
@@ -40,34 +40,37 @@
             <ion-icon name="logo-linkedin"></ion-icon>: <a href="{{profile.linkedin}}">{{profile.linkedin}}</a> </h6>
           <h6 class="profile-github profile-infos" *ngIf="profile.github">
             <ion-icon name="logo-github"></ion-icon>: <a href="{{profile.github}}">{{profile.github}}</a> </h6>
-          <h6 class="profile-infos" style="font-weight: bold;">Comentários: </h6>
-          <ion-list>
-            <ion-item *ngFor="let comment of  profile.obs">"{{comment}}"</ion-item>
-          </ion-list>
+          <button [disabled]="!waitProfile || waitProfile.filecontent === 'Não informado'" ion-button primary (click)="downloadCurriculum(profile.id)">Baixar Currículo</button>
         </content>
       </ion-col>
       <ion-col>
-        <h4 style="text-align:center;">Atualização de Status</h4>
-        <hr/>
-        <ion-row>
-          <ion-textarea placeholder="Enter a description" [(ngModel)]="profile.newObs"></ion-textarea>
-        </ion-row>
-        <ion-row>
-          <ion-item>
-            <ion-label>Status</ion-label>
-            <ion-select [(ngModel)]="profile.status">
-              <ion-option value="0">Novo</ion-option>
-              <ion-option value="1">Pendente</ion-option>
-              <ion-option value="2">Em processo</ion-option>
-              <ion-option value="3">Contratado</ion-option>
-              <ion-option value="4">Eliminado</ion-option>
-            </ion-select>
-          </ion-item>
-        </ion-row>
-        <ion-row>
-          <button ion-button block primary (click)="updateStatus(profile)">Atualizar estado</button>
-        </ion-row>
-        <hr/>
+        <h6 class="profile-infos" style="font-weight: bold;">Comentários: </h6>
+        <ion-list>
+          <ion-item *ngFor="let comment of  profile.obs">- "{{comment}}"</ion-item>
+        </ion-list>
+        <div class="statusUpdate">
+          <h4 style="text-align:center;padding-top:20px;">Inserir novo Status</h4>
+          <hr/>
+          <ion-row>
+            <ion-textarea placeholder="Enter a description" [(ngModel)]="profile.newObs"></ion-textarea>
+          </ion-row>
+          <ion-row>
+            <ion-item>
+              <ion-label>Status</ion-label>
+              <ion-select [(ngModel)]="profile.status">
+                <ion-option value="0">Novo</ion-option>
+                <ion-option value="1">Pendente</ion-option>
+                <ion-option value="2">Em processo</ion-option>
+                <ion-option value="3">Contratado</ion-option>
+                <ion-option value="4">Eliminado</ion-option>
+              </ion-select>
+            </ion-item>
+          </ion-row>
+          <ion-row>
+            <button ion-button block primary (click)="updateStatus(profile)">Atualizar estado</button>
+          </ion-row>
+          <hr/>
+        </div>
       </ion-col>
     </ion-row>
   </article>

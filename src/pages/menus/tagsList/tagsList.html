@@ -9,9 +9,8 @@
   </ion-navbar>
 </ion-header>
 <ion-content>
-  <ion-searchbar (ionInput)="searchTags(myParam)" [(ngModel)]="myParam"></ion-searchbar>
   <ion-list>
-    <button menuClose ion-item *ngFor="let tag of tags" (click)="showCandidatesFromTag(tag)">
+    <button ion-item *ngFor="let tag of tags" (click)="showCandidatesFromTag(tag)">
       <h1>
         {{tag}}
       </h1>
