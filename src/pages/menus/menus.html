@@ -1,13 +1,19 @@
 <ion-header >
     <ion-navbar color="primary">
-    <ion-title>Aloysius</ion-title>
+    <ion-title>
+      <h1>
+        Aloysius
+      </h1>
+    </ion-title>
     </ion-navbar >
 </ion-header>
 
 <ion-content>
     <ion-list>
     <button menuClose ion-item *ngFor="let p of menus" (click)="showCandidates(p)">
-        {{p.title}}
+        <h1>
+          {{p.title}}
+        </h1>
     </button>
     </ion-list>
 </ion-content>

@@ -1,13 +1,19 @@
 <ion-header>
   <ion-navbar color="primary">
-    <ion-title>Candidatos</ion-title>
+    <ion-title>
+      <h1>
+        Candidatos
+      </h1>
+    </ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content>
   <ion-searchbar (ionInput)="searchCandidates(myParam)" [(ngModel)]="myParam"></ion-searchbar>
   <ion-list>
     <button menuClose ion-item *ngFor="let candidate of candidates" (click)="showCandidate(candidate)">
+      <h1>
         {{candidate.nome}}
+        </h1>
     </button>
   </ion-list>
 </ion-content>

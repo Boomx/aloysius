@@ -22,9 +22,9 @@ export class MyApp {
   loading: boolean;
   loader;
   constructor(
-    public platform: Platform, 
+    public platform: Platform,
     public statusBar: StatusBar,
-    public splashScreen: SplashScreen, 
+    public splashScreen: SplashScreen,
     public eventCtrl:Events,
     public candidateService: CandidatesService,
     public loadingController: LoadingController,
@@ -33,7 +33,7 @@ export class MyApp {
     this.initializeApp();
     this.loader = this.loadingController.create();
     // this.loader.present();
-    fodase.create(EditProfilePage).present();
+    // fodase.create(EditProfilePage).present();
   }
 
   initializeApp() {
